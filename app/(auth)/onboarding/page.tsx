@@ -7,25 +7,32 @@ import React from 'react'
 const page = async () => {
 
   const user = await currentUser();
-  const userInfo = {};
+  const userInfo = {
+    _id: "",
+    username: "",
+    name: "",
+    bio: "",
+    image: ""
+
+  };
 
   const userData = {
     id: user?.id,
     objectId: userInfo?._id || "",
-    username: userInfo ? userInfo?.username : user.username,
-    name: userInfo ? userInfo?.name : user.firstName ?? "",
+    username: userInfo ? userInfo?.username : user?.username,
+    name: userInfo ? userInfo?.name : user?.firstName ?? "", //The ?? operator only falls back on null or undefined.
     bio: userInfo ? userInfo?.bio : "",
-    image: userInfo ? userInfo?.image : user.imageUrl,
+    image: userInfo ? userInfo?.image : user?.imageUrl,
   }
 
 
   return (
-  <main className='mx-auto flex max-w-3xl flex-col justify-center px-10 py-20'>
+  <main className='mx-auto flex max-w-3xl flex-col justify-center px-10 py-20 bg-white border-2 border-black'>
     <h1>On boarding</h1>
     <p className='mt-3'>
       Complete you profile now, to use Threads.
     </p>
-    <section className='mt-9 p-10 bg-[#111111]'>
+    <section className='mt-9 p-10 border-2'>
       <AccountProfile user={userData} btnTitle="Continue" />
     </section>
     

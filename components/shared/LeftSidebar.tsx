@@ -30,7 +30,7 @@ const LeftSidebar = () => {
             return(
               <Link href={ element.route } key={ element.label } className={`py-4.5 px-8 flex items-center gap-4 mb-2 w-full  rounded-md ${ isActive && "bg-[#877EFF]"}`}>
                   <Image src={element.imgURL} alt='sidebar imgs' width={24} height={24} />
-                  <p className='text-lg font-semibold'> { element.label } </p>
+                  <p className='text-lg font-semibold text-white'> { element.label } </p>
               </Link>
             )
           })
