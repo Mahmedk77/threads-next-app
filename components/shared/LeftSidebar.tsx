@@ -41,7 +41,7 @@ const LeftSidebar = () => {
           <SignOutButton redirectUrl='/sign-in'>
             <div className='flex items-center gap-4 cursor-pointer'>
             <Image src={"/logout.svg"} alt='logout icon' width={24} height={24} />
-            <p className='text-lg font-medium'>Logout</p>
+            <p className='text-lg font-medium text-white'>Logout</p>
             </div>
           </SignOutButton>
         </SignedIn>

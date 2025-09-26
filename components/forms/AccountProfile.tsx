@@ -66,7 +66,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           name="profile_photo"
           render={({ field }) => (
             <FormItem className='flex items-center gap-4'>
-              <FormLabel className='my-0'>
+              <FormLabel className='my-0 p-8 rounded-full bg-[#1F1F22] text-blue-400'>
               {
                 field.value
                 ? ( 
@@ -89,16 +89,18 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
                 )
               }
               </FormLabel>
-              {/* why input in form control? */}
-              <FormControl className='flex-1 text-base font-medium text-gray-200 '> 
+              {/* why input in form control? */} 
+              <FormControl className='flex-1 text-base font-medium'>
                 <Input
                   type='file'
                   accept='image/*'
-                  
-                  className='cursor-pointer p-2'
+                  id='"file-upload'
+                  className='cursor-pointer p-2 outline-0 border-none text-gray-300'
                   onChange={(e) => handleImage(e, field.onChange)}
                 />
+                
               </FormControl>
+              
             </FormItem>
           )}
         />
@@ -109,15 +111,15 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem className='flex items-center gap-4 w-full'>
-              <FormLabel className='text-base font-semibold text-gray-600 my-0'>
+            <FormItem className='flex flex-col items-start gap-4 w-full '>
+              <FormLabel className='text-base font-semibold text-white my-0'>
                 Name
               </FormLabel>
               {/* why input in form control? */}
               <FormControl className='flex-1 text-base font-medium text-gray-200 '> 
                 <Input
                   type='text'      
-                  className='no-focus'
+                  className='border-none bg-black p-2'
                   {...field}
                 />
               </FormControl>
@@ -131,14 +133,14 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           control={form.control}
           name='username'
           render={({ field }) => (
-            <FormItem className='flex items-center gap-4 w-full'>
-              <FormLabel className='text-base font-semibold text-gray-600 my-0'>
+            <FormItem className='flex flex-col items-start gap-4 w-full'>
+              <FormLabel className='text-base font-semibold text-white my-0'>
                 User Name
               </FormLabel>
               <FormControl className='flex-1 text-base font-medium text-gray-200'>
                 <Input 
                   type='text'
-                  className='no-focus'
+                  className='border-none bg-black p-2'
                   {...field}
                 />
               </FormControl>
@@ -152,14 +154,14 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           name='bio'
           control={form.control}
           render={({ field }) => (
-            <FormItem className='flex items-center gap-4 w-full'>
-              <FormLabel className='text-base font-semibold text-gray-600 my-0'>
+            <FormItem className='flex flex-col items-start gap-4 w-full'>
+              <FormLabel className='text-base font-semibold my-0 text-white'>
                 Bio
               </FormLabel>
               <FormControl className='flex-1 text-base font-medium text-gray-200'>
                 <Textarea  
                   rows={10}
-                  className='no-focus'
+                  className='border-none bg-black'
                   {...field}
                 />
               </FormControl>
@@ -167,7 +169,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           )}
         />
 
-        <Button type="submit" className='bg-yellow-400'>Submit</Button>
+        <Button type="submit" className='bg-[var(--brand-blue-button)] w-full hover:bg-[#524c9a] cursor-pointer text-base tracking-wide'>Submit</Button>
       </form>
     </Form>
   )

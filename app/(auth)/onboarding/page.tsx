@@ -27,12 +27,12 @@ const page = async () => {
 
 
   return (
-  <main className='mx-auto flex max-w-3xl flex-col justify-center px-10 py-20 bg-white border-2 border-black'>
-    <h1>On boarding</h1>
-    <p className='mt-3'>
-      Complete you profile now, to use Threads.
+  <main className='mx-auto flex max-w-3xl flex-col justify-center px-10 py-20 '>
+    <h1 className='text-3xl text-white font-semibold'>On boarding</h1>
+    <p className='mt-3 text-white'>
+      Complete you profile now to use Threads
     </p>
-    <section className='mt-9 p-10 border-2'>
+    <section className='mt-9 p-10  bg-[var(--brand-black)]'>
       <AccountProfile user={userData} btnTitle="Continue" />
     </section>
     
