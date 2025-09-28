@@ -1,6 +1,6 @@
 "use client"
 
-import React, { ChangeEvent } from 'react'
+import React, { ChangeEvent, useEffect, useState } from 'react'
 
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -8,7 +8,6 @@ import { UserValidation } from '@/lib/validations/user';
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
-
 import {
   Form,
   FormControl,
@@ -20,6 +19,10 @@ import {
 } from "@/components/ui/form";
 import z, { file } from 'zod';
 import Image from 'next/image';
+import { isBase64Image } from '@/lib/utils';
+import { useUploadThing } from '@/lib/uploadthing';
+import { updateUser } from '@/lib/actions/user.actions';
+import { usePathname, useRouter } from 'next/navigation';
 
 interface Props {
   user: {
@@ -35,26 +38,82 @@ interface Props {
 
 const AccountProfile = ({ user, btnTitle }: Props ) => {
 
+  const [files, setFiles] = useState<File[]>([]);
+  const { startUpload } = useUploadThing("media"); 
+  const pathname  = usePathname();
+  const router = useRouter();
+
   const form = useForm({
     resolver: zodResolver(UserValidation),
     defaultValues: {
-      profile_photo: "",
-      name: "",
-      username: "",
-      bio: ""
+      profile_photo:  user?.image || "",
+      name: user?.name || "",
+      username: user?.username || "",
+      bio: user?.bio || ""
     }
   });
 
-  function onSubmit(values: z.infer<typeof UserValidation>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  const onSubmit = async (values: z.infer<typeof UserValidation>) => {
+    const blob = values.profile_photo;
+
+    const hasImageChanged = isBase64Image(blob);
+
+    if(hasImageChanged) {
+      const imgRes = await startUpload(files);
+      
+      console.log("res image",imgRes);
+
+
+      if(imgRes && imgRes[0].url){
+        values.profile_photo = imgRes[0].url;
+      }
+    }
+    
+    if (!user?.id) {
+    throw new Error("User ID is missing");
+    }
+    await updateUser({
+      name: values.name,
+      path: pathname,
+      username: values.username,
+      userId: user.id,
+      bio: values.bio,
+      image: values.profile_photo,
+    })
+
+    if (pathname.includes("/profile/edit")){
+      router.back();
+    } else {
+      router.push("/");
+    }
+
   }
 
-  function handleImage(e : ChangeEvent<HTMLInputElement>, 
-    fieldChange: (value:string) => void){
-        e.preventDefault();
+  function handleImage(
+    e : ChangeEvent<HTMLInputElement>, 
+    fieldChange: (value:string) => void
+  ){
+        // console.log(e.target.files[0]); //e.target.files == > {0: {name: "fileName", size: "Int", type: "image/*"}}
+        e.preventDefault(); //good habit to stop unwanted reactions.
+
+        const fileReader = new FileReader();
+
+        if(e.target.files && e.target.files.length > 0) {
+          const file = e.target.files[0];
+          // console.log(file)
+          setFiles(Array.from(e.target.files));
+
+          if(!file.type.includes("image")) return;
+
+          fileReader.onload = async (event) => {
+            const imageDataUrl = event.target?.result?.toString() || "";
+            fieldChange(imageDataUrl);
+          }
+
+          fileReader.readAsDataURL(file);
+        }
   }
+
 
   return (
       <Form {...form}>
@@ -66,9 +125,10 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           name="profile_photo"
           render={({ field }) => (
             <FormItem className='flex items-center gap-4'>
-              <FormLabel className='my-0 p-8 rounded-full bg-[#1F1F22] text-blue-400'>
+              <FormLabel className='my-0  rounded-full bg-[#1F1F22]'>
               {
                 field.value
+                
                 ? ( 
                   <Image 
                   src={field.value}
@@ -76,7 +136,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
                   width={96}
                   height={96}
                   priority
-                  className='rounded-full object-contain'/>
+                  className='rounded-full object-contain aspect-square '/>
                 ) :
                 (
                 <Image 
@@ -85,7 +145,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
                   width={24}
                   height={24}
                   priority
-                  className='object-contain'/>
+                  className='object-contain m-8'/>
                 )
               }
               </FormLabel>
@@ -96,7 +156,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
                   accept='image/*'
                   id='"file-upload'
                   className='cursor-pointer p-2 outline-0 border-none text-gray-300'
-                  onChange={(e) => handleImage(e, field.onChange)}
+                  onChange={(e) => handleImage(e, field.onChange)} //passing field.onChange as a function to trigger the field change effects
                 />
                 
               </FormControl>

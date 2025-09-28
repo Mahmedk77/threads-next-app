@@ -7,6 +7,8 @@ import React from 'react'
 const page = async () => {
 
   const user = await currentUser();
+  // console.log(user);
+  
   const userInfo = {
     _id: "",
     username: "",
@@ -18,11 +20,11 @@ const page = async () => {
 
   const userData = {
     id: user?.id,
-    objectId: userInfo?._id || "",
-    username: userInfo ? userInfo?.username : user?.username,
-    name: userInfo ? userInfo?.name : user?.firstName ?? "", //The ?? operator only falls back on null or undefined.
-    bio: userInfo ? userInfo?.bio : "",
-    image: userInfo ? userInfo?.image : user?.imageUrl,
+    objectId: "",
+    username: user?.username || "",
+    name: user?.firstName ? `${user?.firstName} ${user?.lastName}`  : "",
+    bio: "",
+    image: user?.imageUrl || "",
   }
 
 
