@@ -59,13 +59,17 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
     const hasImageChanged = isBase64Image(blob);
 
     if(hasImageChanged) {
-      const imgRes = await startUpload(files);
-      
-      console.log("res image",imgRes);
+    console.log("typeof startUpload:", typeof startUpload); // ✅ add here
+    console.log("files:", files); // optional - to make sure files aren't empty
+
+    const imgRes = await startUpload(files);
+    console.log("res image", imgRes);
 
 
-      if(imgRes && imgRes[0].url){
-        values.profile_photo = imgRes[0].url;
+
+      if(imgRes && imgRes[0].ufsUrl){
+        console.log("inside profile assignment")
+        values.profile_photo = imgRes[0].ufsUrl;
       }
     }
     

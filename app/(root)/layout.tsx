@@ -31,12 +31,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased `}>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
           <Topbar />
       
           <main className="flex flex-row">
             <LeftSidebar />
-            <section className="flex min-h-screen  flex-1 flex-col items-center px-6 pb-10 pt-28 max-md:pb-32 sm:px-10;"> 
+            <section className="flex min-h-screen  flex-1 flex-col items-center px-6 pb-10 pt-16 max-md:pb-32 sm:px-8"> 
               <div className="w-full max-w-4xl">
                 {children}
               </div>
