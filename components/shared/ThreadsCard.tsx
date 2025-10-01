@@ -38,7 +38,7 @@ const ThreadsCard = ({
 
   console.log(author);
   return (
-  <article className="py-6 px-8 bg-[var(--brand-black)] rounded-md">
+  <article className={`rounded-xl ${isComment ? "px-0 sm:px-7" : "py-6 px-8 bg-[var(--brand-black)]"}`}>
     <div className="flex flex-1 gap-4">
         <div className="flex flex-col items-center justify-start">
           
@@ -54,7 +54,7 @@ const ThreadsCard = ({
             <p className="text-white text-sm mt-2 mb-4">{ content }</p>
             <div className="flex gap-4 ">
               <Image src={"/heart-gray.svg"} alt="image"  className="cursor-pointer object-contain" width={28} height={28}/>
-              <Link href={`/threads/${id}`}>
+              <Link href={`/thread/${id}`}>
                 <Image src={"/reply.svg"} alt="image" className="cursor-pointer object-contain" width={28} height={28}/>
               </Link>
               <Image src={"/repost.svg"} alt="image" className="cursor-pointer object-contain" width={28} height={28}/>
