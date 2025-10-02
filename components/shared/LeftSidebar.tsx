@@ -1,7 +1,7 @@
 "use client";
 
 import { sidebarLinks } from '@/constants';
-import { SignedIn, SignOutButton } from '@clerk/nextjs';
+import { SignedIn, SignOutButton, useAuth } from '@clerk/nextjs';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname, useRouter } from 'next/navigation';
@@ -14,6 +14,9 @@ const LeftSidebar = () => {
 
   const [isActive, setIsActive] = useState(false);
 
+  const { isLoaded, userId } = useAuth();
+
+  if(!isLoaded) return null
 
 
 
@@ -27,6 +30,8 @@ const LeftSidebar = () => {
             //TODO Clear this concept again
             (pathname.includes(element.route) && element.route.length > 1) ||
             pathname === element.route;
+
+            if(element.route == '/profile') element.route = `${element.route}/${userId}`;
             return(
               <Link href={ element.route } key={ element.label } className={`py-4.5 px-8 flex items-center gap-4 mb-2 w-full  rounded-md ${ isActive && "bg-[#877EFF]"}`}>
                   <Image src={element.imgURL} alt='sidebar imgs' width={24} height={24} />
