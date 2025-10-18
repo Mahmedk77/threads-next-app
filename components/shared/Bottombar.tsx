@@ -12,7 +12,7 @@ const Bottombar = () => {
   const pathname = usePathname();
 
   return (
-    <footer className='md:hidden fixed bottom-0 w-full z-50 bg-black backdrop-blur-lg border'>
+    <footer className='md:hidden fixed bottom-0 w-full z-50 bg-black backdrop-blur-lg'>
         <div className='px-4 py-2 flex items-center gap-3 '>
           {
           sidebarLinks.map((element) => {

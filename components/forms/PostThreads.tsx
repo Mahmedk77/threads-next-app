@@ -77,7 +77,7 @@ const PostThreads = ({ userId } :{ userId: string }) => {
                 {/* why input in form control? */}
                 <FormControl className='flex-1 text-base font-medium text-gray-200 '> 
                 <Textarea
-                    rows={15}    
+                    rows={5}    
                     className='border-none bg-[var(--brand-black)] p-2'
                     {...field}
                 />

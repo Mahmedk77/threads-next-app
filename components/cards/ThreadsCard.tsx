@@ -1,3 +1,6 @@
+
+
+import { useAuth } from "@clerk/nextjs";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";
@@ -24,7 +27,7 @@ interface Params {
     isComment?: boolean
 }
 
-const ThreadsCard = ({
+const ThreadsCard = async ({
   id,
   currentUserId,
   parentId,
@@ -36,13 +39,15 @@ const ThreadsCard = ({
   isComment
 }: Params) => {
 
+
+
   console.log(author);
   return (
   <article className={`rounded-xl ${isComment ? "px-0 sm:px-7" : "py-6 px-8 bg-[var(--brand-black)]"}`}>
     <div className="flex flex-1 gap-4">
         <div className="flex flex-col items-center justify-start">
           
-            <Link href={`profile/`} className="h-14 w-14 relative">
+            <Link href={`profile/${author.id}`} className="h-14 w-14 relative">
               <Image src={author?.image} alt="profile image" fill className="rounded-full aspect-square "/>
             </Link>
           

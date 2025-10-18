@@ -10,7 +10,7 @@ async function page() {
     if(!user) return null;
 
     const userInfo = await fetchUser(user.id) //fetching user info from mongoDB
-    console.log("User Data from MongoDB",userInfo)
+    console.log("User Data from MongoDB", userInfo)
     if(!userInfo?.onboarded) redirect('/onboarding'); //checks if the user is onboarded or not
     
     let DB_ID = (userInfo._id).toString(); 

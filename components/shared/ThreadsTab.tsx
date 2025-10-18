@@ -1,6 +1,7 @@
 import { fetchUserPosts } from '@/lib/actions/user.actions'
 import React from 'react'
-import ThreadsCard from './ThreadsCard'
+import ThreadsCard from '../cards/ThreadsCard'
+import { redirect } from 'next/navigation'
 
 interface Props {
     currentUserId: string
@@ -10,7 +11,9 @@ interface Props {
 
 const ThreadsTab = async ({ currentUserId, accountId, accountType }: Props) => {
 
-    const result = await fetchUserPosts(currentUserId);
+    const result = await fetchUserPosts(accountId);
+
+    if(!result) redirect('/');
   
     return (
     <section className='mt-9 flex flex-col gap-10'>
