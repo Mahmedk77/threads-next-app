@@ -24,7 +24,7 @@ const RightSidebar = async () => {
     <div className="text-white px-4 py-6 flex flex-col justify-start items-start max-md:hidden bg-[#111111]">
       <h3 className="font-semibold text-lg">Suggested Users</h3>
       
-      <div className="mt-4 flex flex-col gap-9 w-full  pr-32 py-4 rounded-md pl-2 hover:bg-[#877EFF] cursor-pointer ">
+      <div className="mt-4 flex flex-col gap-2 w-full  ">
         {
         result.users.length === 0 ? (
           <p className="text-lg font-semibold text-white tracking-wide">No users</p>
@@ -33,7 +33,8 @@ const RightSidebar = async () => {
             {result.users.map((person) => (
               <Link href={`/profile/${person.id}`}
                 key={person.id}
-                className="w-full flex justify-between items-center ">
+                className="w-full flex justify-between items-center 
+                pr-32 py-4 rounded-md pl-2 hover:bg-[#877EFF] cursor-pointer ">
 
                 <div className="flex justify-center items-center gap-2 ">
                   <Image
@@ -47,7 +48,7 @@ const RightSidebar = async () => {
                     <h3 className="text-sm font-semibold text-white">
                       {person.name}
                     </h3>
-                    <p className="text-slate-300 text-xs font-medium ">
+                    <p className="text-slate-100 text-xs font-medium ">
                       @{person.username}
                     </p>
                   </div>
