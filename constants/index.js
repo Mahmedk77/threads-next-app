@@ -20,11 +20,6 @@ export const sidebarLinks = [
     label: "Create Thread",
   },
   {
-    imgURL: "/community.svg",
-    route: "/communities",
-    label: "Communities",
-  },
-  {
     imgURL: "/user.svg",
     route: "/profile",
     label: "Profile",
@@ -42,3 +37,10 @@ export const communityTabs = [
   { value: "members", label: "Members", icon: "/members.svg" },
   { value: "requests", label: "Requests", icon: "/request.svg" },
 ];
+
+
+  // {
+  //   imgURL: "/community.svg",
+  //   route: "/communities",
+  //   label: "Communities",
+  // },

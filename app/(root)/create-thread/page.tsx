@@ -5,7 +5,7 @@ import { redirect } from "next/navigation";
 
 async function page() {
     const user = await currentUser(); //user info from clerk
-    console.log("User Data from Clerk", user)
+    // console.log("User Data from Clerk", user)
 
     if(!user) return null;
 

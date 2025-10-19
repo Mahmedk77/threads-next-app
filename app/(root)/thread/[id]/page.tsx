@@ -1,5 +1,5 @@
 import ThreadsCard from '@/components/cards/ThreadsCard';
-import { fetchThreadsById } from '@/lib/actions/thread.action';
+import { fetchThreadById } from '@/lib/actions/thread.action';
 import { fetchUser } from '@/lib/actions/user.actions';
 import { currentUser } from '@clerk/nextjs/server';
 import { redirect } from 'next/navigation';
@@ -17,7 +17,7 @@ const page = async ({ params }: { params : { id: string } }) => {
     const userInfo = await fetchUser(user.id); ///this is from MONGODB
     if(!userInfo.onboarded) redirect("/onboarding");
 
-    const threads = await fetchThreadsById(resolvedParams.id);
+    const threads = await fetchThreadById(resolvedParams.id);
 
     return (
     <section className='realtive'>

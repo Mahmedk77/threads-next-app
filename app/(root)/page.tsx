@@ -15,7 +15,7 @@ export default async function Home() {
 
   const result = await fetchPosts(1, 30);
   console.log(result)
-
+  // console.log(result.posts.community)
   return (
     <>
       <h1 className="text-white text-3xl font-bold">
