@@ -1,5 +1,6 @@
 import { darkMode } from '@/tailwind.config'
-import { OrganizationSwitcher, SignedIn, SignOutButton, UserButton } from '@clerk/nextjs'
+import { OrganizationSwitcher, SignedIn, SignOutButton, UserButton, SignedOut, SignInButton, SignUpButton, } from '@clerk/nextjs'
+
 import { dark } from '@clerk/themes'
 import Image from 'next/image'
 import Link from 'next/link'
@@ -12,7 +13,21 @@ const Topbar = () => {
           <Image src={'/logo.svg'} alt='' width={28} height={28}/>
           <p className='text-2xl font-bold max-sm:hidden text-white'>Threads</p>
         </Link>
-        <div className='flex gap-4 items-center'>
+        <div className='flex items-center justify-center'>
+           <div className='border-2  bg-white rounded-full'>
+            <SignedOut >
+            <SignInButton> 
+                <button className="text-white rounded-full text-sm md:text-md font-medium h-8 sm:h-12 px-2 sm:px-4 cursor-pointer bg-[#111111] hover:bg-[#877EFF]">
+                    Sign in
+                </button>
+            </SignInButton>
+                <SignUpButton>
+                    <button className="text-black rounded-full text-sm md:text-md font-medium h-8 sm:h-12 px-2 sm:px-4 cursor-pointer hover:text-[#877EFF]">
+                        Sign up
+                    </button>
+                </SignUpButton>
+            </SignedOut>
+           </div>
           <div className='block md:hidden'>
           <SignedIn>
             <SignOutButton>
@@ -21,6 +36,7 @@ const Topbar = () => {
               </div>
             </SignOutButton>
           </SignedIn>
+         
           </div>
           <OrganizationSwitcher 
             appearance={{
@@ -35,6 +51,7 @@ const Topbar = () => {
             }}
           />
         </div>
+        {/* <p className='text-white'>Hello World</p> */}
       </nav>
     </>
   )

@@ -5,7 +5,8 @@ import Topbar from "../../components/shared/Topbar";
 import LeftSidebar from "../../components/shared/LeftSidebar";
 import RightSidebar from "../../components/shared/RightSidebar";
 import Bottombar from "../../components/shared/Bottombar";
-import "@/app/globals.css"
+import "../globals.css"
+import Navbar from "@/components/shared/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -32,7 +33,7 @@ export default function RootLayout({
       <html lang="en">
         <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
           <Topbar />
-      
+          {/* <Navbar /> */}
           <main className="flex flex-row">
             <LeftSidebar />
             <section className="flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-8  max-md:pb-32 sm:px-8"> 
