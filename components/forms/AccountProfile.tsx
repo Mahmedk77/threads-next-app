@@ -159,7 +159,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
                   type='file'
                   accept='image/*'
                   id='"file-upload'
-                  className='cursor-pointer p-2 outline-0 border-none text-gray-300'
+                  className='cursor-pointer p-0 sm:p-2 outline-0 max-sm:text-xs border-none text-gray-300'
                   onChange={(e) => handleImage(e, field.onChange)} //passing field.onChange as a function to trigger the field change effects
                 />
                 

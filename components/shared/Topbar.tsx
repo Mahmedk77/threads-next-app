@@ -10,7 +10,7 @@ const Topbar = () => {
     <>
       <nav className='flex items-center justify-between p-6 bg-[#111111]'>
         <Link href={'/'} className='flex gap-2 items-center'>
-          <Image src={'/logo.svg'} alt='' width={28} height={28}/>
+          <Image src={'/logo.svg'} alt='' width={34} height={34}/>
           <p className='text-2xl font-bold max-sm:hidden text-white'>Threads</p>
         </Link>
         <div className='flex items-center justify-center'>
