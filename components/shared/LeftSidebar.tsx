@@ -21,7 +21,7 @@ const LeftSidebar = () => {
 
 
   return (
-    <section className='px-4 pl-6 flex flex-col justify-between items-center max-md:hidden bg-[#111111]'>
+    <section className='px-4 pl-6 flex flex-col justify-between items-center max-md:hidden bg-[#111111] min-h-screen'>
       <div className='my-6'>
         {
           sidebarLinks.map((element) => {

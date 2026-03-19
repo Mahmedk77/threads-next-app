@@ -28,7 +28,7 @@ const page = async () => {
 
   
   return (
-    <section>
+    <section >
       <h1 className='head-text'>Search</h1>
       <div className='mt-14 flex flex-col gap-9'>
         {

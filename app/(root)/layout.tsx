@@ -31,12 +31,12 @@ export default function RootLayout({
   return (
     <ClerkProvider>
       <html lang="en">
-        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black`}>
+        <body className={`${geistSans.variable} ${geistMono.variable} antialiased bg-black h-screen overflow-hidden`}>
           <Topbar />
           {/* <Navbar /> */}
-          <main className="flex flex-row">
+          <main className="flex flex-row ">
             <LeftSidebar />
-            <section className="flex min-h-screen flex-1 flex-col items-center px-6 pb-10 pt-8  max-md:pb-32 sm:px-8"> 
+            <section className="flex max-h-screen overflow-y-scroll flex-1 flex-col items-center px-6 pt-8  pb-32 sm:px-8 no-scrollbar "> 
               <div className="w-full max-w-4xl">
                 {children}
               </div>

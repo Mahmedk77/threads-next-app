@@ -29,7 +29,7 @@ const page = async () => {
 
 
   return (
-  <main className='mx-auto flex max-w-3xl flex-col justify-center px-2 m:px-10 py-5 sm:py-20 border'>
+  <main className='mx-auto flex max-w-3xl flex-col justify-center px-2 m:px-10 py-5 sm:py-20 '>
     <h1 className='text-3xl text-white font-semibold'>On boarding</h1>
     <p className='mt-3 text-white'>
       Complete you profile now to use Threads

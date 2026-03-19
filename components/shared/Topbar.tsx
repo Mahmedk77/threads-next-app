@@ -8,7 +8,7 @@ import Link from 'next/link'
 const Topbar = () => {
   return (
     <>
-      <nav className='flex items-center justify-between p-6 bg-[#111111]'>
+      <nav className='flex items-center justify-between p-6 bg-[#111111] '>
         <Link href={'/'} className='flex gap-2 items-center'>
           <Image src={'/logo.svg'} alt='' width={34} height={34}/>
           <p className='text-2xl font-bold max-sm:hidden text-white'>Threads</p>
