@@ -23,10 +23,10 @@ const RightSidebar = async () => {
   });
 
   return (
-    <div className="text-white px-4 py-6 flex flex-col justify-start items-start max-xl:hidden bg-[#111111] min-h-screen">
+    <div className="text-white px-4 py-6 flex flex-col justify-start items-start max-xl:hidden bg-[#111111] border-l">
       <h3 className="font-semibold text-lg text-white">Suggested Users</h3>
       
-      <div className="mt-4 flex flex-col gap-2 w-full  ">
+      <div className="mt-4 flex flex-col gap-2 w-full overflow-y-scroll mb-32 max-h-132 no-scrollbar">
         {
         result.users.length === 0 ? (
           <p className="text-lg font-semibold text-white tracking-wide">No users</p>
