@@ -60,7 +60,7 @@ const page = async ({ params }: { params: { id: string } }) => {
             profileTabs.map((tab) => (
              <TabsContent key={`content-${tab.label}`} 
              value={tab.value}
-             className='w-full text-gray-500'>
+             className='w-full text-gray-500 '>
                 <ThreadsTab
                   currentUserId={user.id}
                   accountId={userInfo.id}

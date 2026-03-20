@@ -23,7 +23,7 @@ const RightSidebar = async () => {
   });
 
   return (
-    <div className="text-white px-4 py-6 flex flex-col justify-start items-start max-md:hidden bg-[#111111] min-h-screen">
+    <div className="text-white px-4 py-6 flex flex-col justify-start items-start max-xl:hidden bg-[#111111] min-h-screen">
       <h3 className="font-semibold text-lg text-white">Suggested Users</h3>
       
       <div className="mt-4 flex flex-col gap-2 w-full  ">

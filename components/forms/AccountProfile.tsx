@@ -123,7 +123,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
       <Form {...form}>
       <form 
       onSubmit={form.handleSubmit(onSubmit)} 
-      className="space-y-8">
+      className="space-y-3 xl:space-y-8">
         <FormField
           control={form.control}
           name="profile_photo"
@@ -175,7 +175,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           control={form.control}
           name="name"
           render={({ field }) => (
-            <FormItem className='flex flex-col items-start gap-4 w-full '>
+            <FormItem className='flex flex-col items-start max-sm:mt-4 gap-4 w-full '>
               <FormLabel className='text-base font-semibold text-white my-0'>
                 Name
               </FormLabel>
@@ -224,7 +224,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
               </FormLabel>
               <FormControl className='flex-1 text-base font-medium text-gray-200'>
                 <Textarea  
-                  rows={10}
+                  rows={3}
                   className='border-none bg-black'
                   {...field}
                 />
@@ -233,7 +233,7 @@ const AccountProfile = ({ user, btnTitle }: Props ) => {
           )}
         />
 
-        <Button type="submit" className='bg-[var(--brand-blue-button)] w-full hover:bg-[#524c9a] cursor-pointer text-base tracking-wide'>Submit</Button>
+        <Button type="submit" className='bg-[var(--brand-blue-button)] w-full hover:bg-[#524c9a] cursor-pointer text-base tracking-wide mt-2'>Submit</Button>
       </form>
     </Form>
   )

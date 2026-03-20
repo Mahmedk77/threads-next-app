@@ -92,7 +92,7 @@ const PostThreads = ({ userId } :{ userId: string }) => {
             </FormItem>
             )}
         />
-        <Button type="submit" className='bg-[var(--brand-blue-button)] w-full 
+        <Button type="submit" className='bg-[#524c9a] sm:bg-[var(--brand-blue-button)] w-full 
         hover:bg-[#524c9a] cursor-pointer 
         text-base tracking-wide'
         >

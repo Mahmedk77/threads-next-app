@@ -20,7 +20,7 @@ const page = async () => {
   return (
     <>
       <h1 className='head-text'>Activity</h1>
-      <section className='mt-10 flex flex-col gap-5'>
+      <section className='mt-10 flex flex-col gap-5 max-sm:mb-10'>
         {
           activity.length > 0 
           ? (

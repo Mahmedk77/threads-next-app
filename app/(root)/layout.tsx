@@ -36,7 +36,7 @@ export default function RootLayout({
           {/* <Navbar /> */}
           <main className="flex flex-row ">
             <LeftSidebar />
-            <section className="flex max-h-screen overflow-y-scroll flex-1 flex-col items-center px-6 pt-8  pb-32 sm:px-8 no-scrollbar "> 
+            <section className="flex max-h-screen overflow-y-scroll flex-1 flex-col items-center px-6 pt-8  pb-32 xl:px-8 no-scrollbar "> 
               <div className="w-full max-w-4xl">
                 {children}
               </div>

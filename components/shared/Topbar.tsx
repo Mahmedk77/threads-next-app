@@ -8,13 +8,13 @@ import Link from 'next/link'
 const Topbar = () => {
   return (
     <>
-      <nav className='flex items-center justify-between p-6 bg-[#111111] '>
+      <nav className='flex items-center justify-between p-6 bg-[#1b1a1a] '>
         <Link href={'/'} className='flex gap-2 items-center'>
           <Image src={'/logo.svg'} alt='' width={34} height={34}/>
           <p className='text-2xl font-bold max-sm:hidden text-white'>Threads</p>
         </Link>
-        <div className='flex items-center justify-center'>
-           <div className='border-2  bg-white rounded-full'>
+        <div className='flex items-center justify-center '>
+           <div className='border-2  bg-white rounded-full '>
             <SignedOut >
             <SignInButton> 
                 <button className="text-white rounded-full text-sm md:text-md font-medium h-8 sm:h-12 px-2 sm:px-4 cursor-pointer bg-[#111111] hover:bg-[#877EFF]">

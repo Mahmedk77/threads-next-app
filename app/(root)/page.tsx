@@ -14,7 +14,7 @@ export default async function Home() {
       <h1 className="text-white text-center text-3xl font-bold">Login to explore the latest threads.</h1>
       <Link href={"/onboarding"} className="mt-4 text-xl font-medium p-4 rounded-full 
       px-6 hover:bg-black border border-black hover:border-white bg-[#877EFF] 
-      text-white cursor-pointer transition-all duration-150">
+      text-white cursor-pointer transition-all duration-150 ">
         Onboard now!
       </Link>
       </div>
@@ -31,7 +31,7 @@ export default async function Home() {
         Home
       </h1>
 
-      <section className="mt-8 flex flex-col gap-4">
+      <section className="mt-8 flex flex-col gap-4 max-sm:mb-8 max-xl:mb-32">
         {
           result.posts.length === 0 
           ? (
