@@ -28,7 +28,7 @@ const Topbar = () => {
                 </SignUpButton>
             </SignedOut>
            </div>
-          <div className='block md:hidden'>
+          <div className='block xl:hidden'>
           <SignedIn>
             <SignOutButton>
               <div className='flex cursor-pointer'>

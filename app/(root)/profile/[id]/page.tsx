@@ -11,7 +11,7 @@ import React from 'react'
 const page = async ({ params }: { params: { id: string } }) => {
   
   const resolvedParams = await params;
-  console.log("the params are here",resolvedParams.id)
+  console.log("the params are here", resolvedParams.id)
   const user = await currentUser();
   if(!user) return null;
   
