@@ -1,22 +1,32 @@
-"user client"
+"use server"
 
 import AccountProfile from '@/components/forms/AccountProfile'
+import { fetchUser } from '@/lib/actions/user.actions'
 import { currentUser } from '@clerk/nextjs/server'
+import { redirect } from 'next/navigation'
 import React from 'react'
 
 const page = async () => {
 
   const user = await currentUser();
-  // console.log(user);
-  
-  const userInfo = {
-    _id: "",
-    username: "",
-    name: "",
-    bio: "",
-    image: ""
+  if (!user) return null;
+  console.log("here is user", user);
 
-  };
+  const userInfo = await fetchUser(user.id);
+  console.log("here is userInfo",userInfo);
+  if (userInfo?.onboarded) redirect('/');
+
+  
+  console.log(user);
+  
+  // const userInfo = {
+  //   _id: "",
+  //   username: "",
+  //   name: "",
+  //   bio: "",
+  //   image: ""
+
+  // };
 
   const userData = {
     id: user?.id,
